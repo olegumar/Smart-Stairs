@@ -98,7 +98,7 @@ void loop(void) {
     ss = Var.substring(Var.indexOf("T3") + 2, Var.indexOf("T4"));
     phDHT = Var.substring(Var.indexOf("T4") + 2, Var.indexOf("T5"));
   }
-  sendData(ss, tm, ph, phDHT);  // Отправлка данных
+  sendData(ss, tm, ph, phDHT);  // Отправка данных
   ArduinoOTA.handle();
   server.handleClient();
 }
