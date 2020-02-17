@@ -4,8 +4,8 @@ void WIFI_init() {
   String ssid = jsonRead(jsonSettings, "ssid");
   String password = jsonRead(jsonSettings, "password");
   if (ssid == "" && password == ""){
-    ssid = "RTK70";            // "Krilova-52"
-    password = "77596501392";  // "RTMK7NRA"
+    ssid = "****";        // по умолчанию
+    password = "******";  // по умолчанию
   }
   int ip2 = jsonReadtoInt(jsonSettings, "ip2");
   int ip3 = jsonReadtoInt(jsonSettings, "ip3");
