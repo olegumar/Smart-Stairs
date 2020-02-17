@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="function.js"></script>
+<style>button{padding: 1px 1px;}</style>
+<style>div{text-align: center;margin: 5px 5px 0px;}</style>
+<style>h2{text-align: center;color: blue;}</style>
+<style>h3{text-align: center;color: green;margin-bottom:15px;}</style>
+<style>h4{text-align: center;margin-bottom:5px;}</style>
+  <title>Настройки</title>
+<!--  --!>
+<script type="text/javascript">
+
+   function set_setting(submit){
+    server = "/sett?Fixate="+val('Fixate')+"&Net="+val('Net')+"&ssid="+val('ssid')+"&password="+val('password')+"&ip2="+val('ip2')+"&ip3="+val('ip3')+"&ip4="+val('ip4')+"&ssidAp="+val('ssidAp')+"&passwordAp="+val('passwordAp');
+    send_request(submit,server);
+   }
+
+   function restart(submit,texts){
+    if (confirm(texts)) {
+	 server = "/restart?device=ok";
+     send_request(submit,server);
+     return true;
+    } else {
+     return false;
+    }
+   }
+
+</script>
+ </head>
+ <body onload="load('settings.json');"  bgcolor="#e6e6e6">
+    <h2>Настройки</h2>
+     <hr>
+	<div>&nbsp;&nbsp;<button><input value="{{Fixate}}" type="submit" id="Fixate" name="Fixate" style="width:25px;" onclick="chb_setting('Fixate')"></button>&nbsp; Фиксировать показания</div>
+	<div><button><input value="{{Net}}" type="submit" id="Net" name="Net" style="width:25px;" onclick="chb_setting('Net')"></button>&nbsp; Включить связь &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+     <div>
+	<h3>Подключение к WiFi роутеру</h3>
+	<input id="ssid" name="ssid" value="{{ssid}}"  pattern="[0-9a-zA-Z.]{1,}" placeholder="Имя WiFi сети"><br><br>
+	<input id="password" name="password" value="{{password}}" pattern=".{5,}" onfocus="this.type='text'" type="password" placeholder="Пароль">
+<br>
+	<h4>Желаемый IP адрес:</h4>
+	<b>192.168.</b>
+     <input id="ip2" name="ip2" value="{{ip2}}" type="number" name="n2" min="0" max="255" placeholder="0" style="border:1px solid #e7e7e7;"><b>.</b>
+     <input id="ip3" name="ip3" value="{{ip3}}" type="number" name="n3" min="0" max="255" placeholder="0" style="border:1px solid #e7e7e7;"> 
+<br>
+	<h4>Клиентский IP адрес:</h4>
+	<b>192.168.</b>{{ip2}}<b>.</b>
+	<input id="ip4" name="ip4" value="{{ip4}}" type="number" name="n4" min="0" max="255" placeholder="0" style="border:1px solid #e7e7e7;"> 
+     </div>
+     <hr>
+     <div>
+	<h3>Точка доступа</h3>
+	<input id="ssidAp" name="ssidAp" value="{{ssidAp}}"  pattern="[0-9a-zA-Z.]{1,15}" placeholder="Имя WiFi сети"><br><br>
+	<input id="passwordAp" name="passwordAp" value="{{passwordAp}}" pattern=".{5,15}" onfocus="this.type='text'" type="password" placeholder="Пароль">
+	<br><br><button><input value="Сохранить" type="submit" style="width:170px; background-color: lime;" onclick="set_setting(this)"></button>
+     </div>
+     <hr><div>
+     <a href="./"><button style="width:180px; background-color: #48b9e5;">Начальная страница</button></a>
+     <br><br><input  value="Перезагрузить устройство" onclick="restart(this,'Вы действительно хотите перезагрузить устройство?');" type="submit">
+   </div>
+ </body>
+</html>

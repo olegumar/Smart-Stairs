@@ -1,0 +1,50 @@
+﻿<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="10; url=./">
+<title>WEB-Пульт</title>
+
+<style>button{padding: 10px 20px;}</style>
+<style>div{text-align: center;margin: 5px 5px 0px;}</style>
+<style>h1{text-align: center;color: blue;font-size: 20px;}</style>
+
+</head>
+<body onload="load('vardata.json');"  bgcolor="#e6e6e6">
+<h1>Web Пульт</h1>
+
+<table style="margin: auto;">
+<tr>
+<td><p style="margin-top: 10px;">--1 Канал--</p></td>
+<td><p style="margin-top: 10px;">--2 Канал--</p></td>
+</tr><tr>
+<td><a href="1pin"><button style="background-color: #43a209;">&nbsp; Вкл &nbsp;</button></a></td>
+<td><a href="2pin"><button style="background-color: #43a209;">&nbsp; Вкл &nbsp;</button></a></td>
+</tr>
+</table>
+
+<div>
+<p style="margin-top: 10px;">-- Регулятор --</p>
+<a href="3PL"><button style="background-color: #43a209;">&nbsp;+&nbsp;</button></a>
+&nbsp; {{phDHT}} &nbsp;
+<a href="3MIN"><button style="background-color: #43a209;">&nbsp;-&nbsp;</button></a>
+</div>
+
+<table style="margin: auto;">
+<tr>
+<td><p style="margin-top: 10px;">Температура:</p></td>
+<td><p style="margin-top: 10px;">{{tm}}</p></td>
+</tr><tr>
+<td>Влажность:</td>
+<td>{{ph}}</td>
+</tr><tr>
+<td>Освещенность:</td>
+<td>{{ss}}</td>
+</tr>
+</table>
+
+<div style="margin-top: 20px;">
+<a href="./"><button style="width:160px; background-color: #48b9e5;">Обновить</button></a><br><br>
+<a href="./settings.htm"><button style="width:160px; background-color: #48b9e5;">Настройки</button></a>
+</div>
+</body></html>
