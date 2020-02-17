@@ -4,8 +4,8 @@
 //#include <WiFiUdp.h>
 #include <ArduinoOTA.h> // для ОТА- прошивки, при условии памяти не менее 1М
 
-const char* ssid = "RTK70";    //"Krilova-52"
-const char* password = "77596501392";  //"RTMK7NRA"
+const char* ssid = "RTK";   
+const char* password = "775965"; 
 const char* host = "192.168.1.33";
 
 IPAddress ip(192, 168, 1, 35);
